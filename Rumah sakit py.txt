@@ -1,0 +1,167 @@
+print("========================================")
+print("          RUMAH SAKIT")
+print("       SISTEM DATA PASIEN")
+print("========================================")
+
+nama = input("Masukkan nama pasien: ")
+
+print("\nDAFTAR PENYAKIT PASIEN")
+print("----------------------------------------")
+print("1. Influenza")
+print("2. Demam Berdarah")
+print("3. Infeksi lambung")
+print("4. Diabetes")
+print("5. Alergi")
+print("6. Tipes")
+print("7. Diare")
+print("8. Pneumonia")
+print("9. Infeksi Saluran Kemih")
+print("10. Radang Tenggorokan")
+print("----------------------------------------")
+
+pilihan = int(input("Pilih penyakit (1-10): "))
+lama = int(input("Lama opname (hari): "))
+
+if pilihan == 1:
+    penyakit = "Influenza"
+    harga = 100000
+    fasilitas = "Ruang rawat inap, pemeriksaan dokter, dan obat"
+elif pilihan == 2:
+    penyakit = "Demam Berdarah"
+    harga = 200000
+    fasilitas = "Ruang rawat inap, pemeriksaan darah, dan pemantauan dokter"
+elif pilihan == 3:
+    penyakit = "Infeksi lambung"
+    harga = 150000
+    fasilitas = "Ruang rawat inap, pemeriksaan laboratorium, dan obat"
+elif pilihan == 4:
+    penyakit = "Diabetes"
+    harga = 225000
+    fasilitas = "Ruang rawat inap, pemeriksaan gula darah, dan konsultasi dokter"
+elif pilihan == 5:
+    penyakit = "Alergi"
+    harga = 150000
+    fasilitas = "Ruang rawat inap, pemeriksaan tekanan darah, dan konsultasi dokter"
+elif pilihan == 6:
+    penyakit = "Tipes"
+    harga = 150000
+    fasilitas = "Ruang rawat inap, pemeriksaan laboratorium, dan obat"
+elif pilihan == 7:
+    penyakit = "Diare"
+    harga = 100000
+    fasilitas = "Ruang rawat inap, pemeriksaan dokter, dan cairan rehidrasi"
+elif pilihan == 8:
+    penyakit = "Pneumonia"
+    harga = 250000
+    fasilitas = "Ruang rawat inap, pemeriksaan pernapasan, dan pemantauan dokter"
+elif pilihan == 9:
+    penyakit = "Infeksi Saluran Kemih"
+    harga = 125000
+    fasilitas = "Ruang rawat inap, pemeriksaan urine, dan konsultasi dokter"
+elif pilihan == 10:
+    penyakit = "Radang Tenggorokan"
+    harga = 100000
+    fasilitas = "Ruang rawat inap, pemeriksaan dokter, dan obat"
+else:
+    penyakit = ""
+    harga = 0
+    fasilitas = ""
+
+if pilihan >= 1 and pilihan <= 10 and lama >= 1:
+
+    total = harga * lama
+
+    print("\n========================================")
+    print("             DATA PASIEN")
+    print("========================================")
+    print("Nama Pasien       :", nama)
+    print("Jenis Penyakit    :", penyakit)
+    print("Lama Opname       :", lama, "hari")
+    print("Biaya Per Hari    : Rp", format(harga, ",").replace(",", "."))
+    print("Total Biaya       : Rp", format(total, ",").replace(",", "."))
+
+    print("\n========================================")
+    print("         FASILITAS RUMAH SAKIT")
+    print("========================================")
+    print(fasilitas)
+
+    print("\n========================================")
+    print("             MENU MAKANAN")
+    print("========================================")
+
+    if lama > 3:
+        print("Pasien mendapatkan makanan khusus:")
+        print("- Bubur atau nasi lunak")
+        print("- Sayuran")
+        print("- Buah-buahan")
+        print("- Susu sesuai kebutuhan pasien")
+    else:
+        print("Pasien mendapatkan makanan reguler:")
+        print("- Nasi")
+        print("- Sayuran")
+        print("- Lauk pauk")
+
+    print("\n========================================")
+    print("           JADWAL KUNJUNGAN")
+    print("========================================")
+
+    if lama > 7:
+        print("Kunjungan: Setiap hari")
+        print("Waktu: 10.00 - 12.00 dan 16.00 - 18.00")
+        print("Maksimal 2 pengunjung secara bergantian")
+    elif lama > 3:
+        print("Kunjungan: Setiap hari")
+        print("Waktu: 16.00 - 18.00")
+        print("Maksimal 2 pengunjung secara bergantian")
+    else:
+        print("Kunjungan: Sesuai jadwal rumah sakit")
+        print("Waktu: 16.00 - 17.00")
+        print("Maksimal 2 pengunjung")
+
+    print("\n========================================")
+    print("           STATUS PASIEN")
+    print("========================================")
+
+    if lama > 7:
+        print("Status: Opname jangka panjang")
+    elif lama > 3:
+        print("Status: Opname menengah")
+    else:
+        print("Status: Opname singkat")
+
+    print("\n========================================")
+    print("          METODE PEMBAYARAN")
+    print("========================================")
+    print("1. BPJS Kesehatan")
+    print("2. Pembayaran Mandiri")
+
+    bayar = int(input("Pilih pembayaran (1-2): "))
+
+    print("\n========================================")
+    print("          RINCIAN PEMBAYARAN")
+    print("========================================")
+
+    if bayar == 1:
+        print("Metode Pembayaran : BPJS Kesehatan")
+        print("Total Biaya       : Rp", format(total, ",").replace(",", "."))
+        print("Ditanggung BPJS   : Rp", format(total, ",").replace(",", "."))
+        print("Total Dibayar     : Rp 0")
+        print("Keterangan        : Simulasi biaya dijamin BPJS")
+
+    elif bayar == 2:
+        print("Metode Pembayaran : Mandiri")
+        print("Total Biaya       : Rp", format(total, ",").replace(",", "."))
+        print("Total Dibayar     : Rp", format(total, ",").replace(",", "."))
+        print("Keterangan        : Pembayaran pribadi")
+
+    else:
+        print("Pilihan pembayaran tidak valid")
+
+    print("\n========================================")
+    print("       SEMOGA CEPAT SEMBUH!")
+    print("          RUMAH SAKIT ")
+    print("========================================")
+
+else:
+    print("\nData tidak valid!")
+    print("Silakan periksa pilihan penyakit dan lama opname.")
